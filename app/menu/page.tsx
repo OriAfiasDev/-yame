@@ -17,17 +17,19 @@ export default function Menu() {
   return (
     <div className="flex flex-col items-center w-screen" dir="rtl">
       <div className={containerClass}>
-        {dataSet.map((category) => {
-          return (
-            <Category
-              key={category.id}
-              {...category}
-              isSelected={selected === category.id}
-              onClick={() => setSelected(category.id)}
-              fullView={!selected}
-            />
-          );
-        })}
+        {dataSet
+          .sort((a, b) => (a.order || 0) - (b.order || 0))
+          .map((category) => {
+            return (
+              <Category
+                key={category.id}
+                {...category}
+                isSelected={selected === category.id}
+                onClick={() => setSelected(category.id)}
+                fullView={!selected}
+              />
+            );
+          })}
       </div>
 
       <div className="flex flex-col gap-3 px-6 w-full">
