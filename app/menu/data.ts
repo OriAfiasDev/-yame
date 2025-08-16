@@ -6,6 +6,8 @@ export const dataSet: TCategory[] = [
     name: "הצלחת הראשונה",
     description: "מבחר מנות ראשונות ופתיחים",
     order: 2,
+    thumbnail:
+      "https://images.immediate.co.uk/production/volatile/sites/30/2024/03/Jamon-and-wild-garlic-croquetas-50f2d2f.jpg",
     dishes: [
       {
         id: "dish_1_1",
@@ -204,6 +206,8 @@ export const dataSet: TCategory[] = [
     name: "בוקר טוב",
     description: "מוגש עד 13:00 בימים ראשון - שישי, עד 12:00 בימי שבת",
     order: 1,
+    thumbnail:
+      "https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/bltff83a08b0ab08cb4/664cbe0dece86b22ce53e9bc/breakfast-meat-spread.jpg",
     dishes: [
       {
         id: "dish_4_1",
@@ -276,6 +280,8 @@ export const dataSet: TCategory[] = [
     name: "סלטים",
     description: "טעמים של בריאות ורעננות",
     order: 3,
+    thumbnail:
+      "https://www.healthyseasonalrecipes.com/wp-content/uploads/2022/06/healthy-cobb-salad-steps-sq-026.jpg",
     dishes: [
       {
         id: "dish_5_1",
@@ -319,6 +325,8 @@ export const dataSet: TCategory[] = [
     name: "איטלקי",
     description: "פיצות ופסטות",
     order: 4,
+    thumbnail:
+      "https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2FPhoto%2FRecipes%2F2023-01-Caramelized-Tomato-Paste-Pasta%2F06-CARAMELIZED-TOMATO-PASTE-PASTA-039",
     dishes: [
       {
         id: "dish_6_1",
@@ -377,6 +385,8 @@ export const dataSet: TCategory[] = [
     name: "קינוחים",
     description: "רגע לפני שמסיימים, משהו מתוק",
     order: 6,
+    thumbnail:
+      "https://images.immediate.co.uk/production/volatile/sites/30/2022/05/Chocolate-sandwich-cupcakes-4b30ada.jpg?quality=90&resize=708,643",
     dishes: [
       {
         id: "dish_7_1",
@@ -430,6 +440,8 @@ export const dataSet: TCategory[] = [
     id: "category_8",
     name: "שתיה חמה",
     description: "תוספת חלב שקדים / סויה / שיבולת שועל: 3 ש״ח",
+    thumbnail:
+      "https://www.americanolounge.com/wp-content/uploads/2024/08/What-is-American-style-coffee_270222935.webp",
     order: 7,
     dishes: [
       {
@@ -516,6 +528,8 @@ export const dataSet: TCategory[] = [
     id: "category_9",
     name: "שתיה קרה",
     description: "שתיה קרה",
+    thumbnail:
+      "https://gadegal-homestay.himwebx.com/wp-content/uploads/2023/10/cold-drink.jpeg",
     order: 8,
     dishes: [
       {
@@ -592,6 +606,8 @@ export const dataSet: TCategory[] = [
     name: "מרעננים",
     description: "משקאות קפואים מרעננים, שילוב מושלם של פירות וקרח",
     order: 9,
+    thumbnail:
+      "https://hips.hearstapps.com/hmg-prod/images/delish-how-to-make-a-smoothie-horizontal-1542310071.png?crop=1xw:0.843328335832084xh;center,top&resize=1200:*",
     dishes: [
       {
         id: "dish_10_1",
@@ -631,6 +647,8 @@ export const dataSet: TCategory[] = [
     name: "יינות",
     description: "מכירה או הגשה של משקאות חריפים למי שטרם מלאו לו 18 אסורה",
     order: 10,
+    thumbnail:
+      "https://cdn.shopify.com/s/files/1/0278/8642/0047/files/11_Types_of_Wine_480x480.jpg?v=1711203013",
     dishes: [
       {
         id: "dish_12_1",
@@ -669,6 +687,8 @@ export const dataSet: TCategory[] = [
     name: "בירות מהחבית",
     description: "מכירה או הגשה של משקאות חריפים למי שטרם מלאו לו 18 אסורה",
     order: 11,
+    thumbnail:
+      "https://www.tastingtable.com/img/gallery/why-draft-beer-tastes-better-than-bottled/the-tasting-experience-1648062930.jpg",
     dishes: [
       {
         id: "dish_13_1",
@@ -701,6 +721,8 @@ export const dataSet: TCategory[] = [
     name: "בירות בבקבוק",
     description: "מכירה או הגשה של משקאות חריפים למי שטרם מלאו לו 18 אסורה",
     order: 12,
+    thumbnail:
+      "https://thumbs.dreamstime.com/b/bottles-famous-global-beer-brands-poznan-pol-mar-including-heineken-becks-bud-miller-corona-stella-artois-san-miguel-143170558.jpg",
     dishes: [
       {
         id: "dish_14_1",
@@ -751,6 +773,8 @@ export const dataSet: TCategory[] = [
     name: "קוקטיילים קלאסיים",
     description: "מכירה או הגשה של משקאות חריפים למי שטרם מלאו לו 18 אסורה",
     order: 13,
+    thumbnail:
+      "https://demitris.com/cdn/shop/articles/Untitled_design_-_2025-04-17T130659.845.png?v=1744916832",
     dishes: [
       {
         id: "dish_15_1",
@@ -789,6 +813,8 @@ export const dataSet: TCategory[] = [
     name: "קוקטיילים YA-ME",
     description: "מכירה או הגשה של משקאות חריפים למי שטרם מלאו לו 18 אסורה",
     order: 14,
+    thumbnail:
+      "https://demitris.com/cdn/shop/articles/Untitled_design_-_2025-04-17T130659.845.png?v=1744916832",
     dishes: [
       {
         id: "dish_16_1",
@@ -821,6 +847,8 @@ export const dataSet: TCategory[] = [
     name: "וויסקי",
     description: "מכירה או הגשה של משקאות חריפים למי שטרם מלאו לו 18 אסורה",
     order: 15,
+    thumbnail:
+      "https://minuman.com/cdn/shop/articles/061022---Get-Familiar-with-Different-Types-of-Whisky_dd355a17-b1d7-4261-9f0a-9d86e8b19399.jpg?v=1749691372",
     dishes: [
       {
         id: "dish_17_1",
@@ -847,6 +875,8 @@ export const dataSet: TCategory[] = [
     name: "וודקה",
     description: "מכירה או הגשה של משקאות חריפים למי שטרם מלאו לו 18 אסורה",
     order: 16,
+    thumbnail:
+      "https://minuman.com/cdn/shop/articles/061022---Get-Familiar-with-Different-Types-of-Whisky_dd355a17-b1d7-4261-9f0a-9d86e8b19399.jpg?v=1749691372",
     dishes: [
       {
         id: "dish_18_1",
@@ -879,6 +909,8 @@ export const dataSet: TCategory[] = [
     name: "טקילה",
     description: "מכירה או הגשה של משקאות חריפים למי שטרם מלאו לו 18 אסורה",
     order: 17,
+    thumbnail:
+      "https://minuman.com/cdn/shop/articles/061022---Get-Familiar-with-Different-Types-of-Whisky_dd355a17-b1d7-4261-9f0a-9d86e8b19399.jpg?v=1749691372",
     dishes: [
       {
         id: "dish_19_1",
@@ -900,6 +932,8 @@ export const dataSet: TCategory[] = [
     name: "קוניאק",
     description: "מכירה או הגשה של משקאות חריפים למי שטרם מלאו לו 18 אסורה",
     order: 18,
+    thumbnail:
+      "https://minuman.com/cdn/shop/articles/061022---Get-Familiar-with-Different-Types-of-Whisky_dd355a17-b1d7-4261-9f0a-9d86e8b19399.jpg?v=1749691372",
     dishes: [
       {
         id: "dish_20_1",
@@ -918,6 +952,8 @@ export const dataSet: TCategory[] = [
   {
     id: "category_21",
     name: "אניס",
+    thumbnail:
+      "https://minuman.com/cdn/shop/articles/061022---Get-Familiar-with-Different-Types-of-Whisky_dd355a17-b1d7-4261-9f0a-9d86e8b19399.jpg?v=1749691372",
     description: "מכירה או הגשה של משקאות חריפים למי שטרם מלאו לו 18 אסורה",
     order: 19,
     dishes: [
