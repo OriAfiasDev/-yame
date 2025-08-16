@@ -17,9 +17,6 @@ export default function Home() {
       <Link href="https://www.instagram.com/yame_beach_bar/">
         <Button>Instagram</Button>
       </Link>
-      <Link href="/ig">
-        <Button>Work With Us</Button>
-      </Link>
     </div>
   );
 }
