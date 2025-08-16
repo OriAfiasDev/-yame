@@ -4,7 +4,7 @@ import { Button } from "./components/button";
 
 export default function Home() {
   return (
-    <div className="flex gap-8 items-center justify-between">
+    <div className="gap-2 grid grid-cols-2">
       <Link href="/menu">
         <Button>Menu</Button>
       </Link>
