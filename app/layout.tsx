@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Karantina, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
 import Link from "next/link";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const karantina = Karantina({
+  variable: "--font-karantina",
   subsets: ["latin"],
+  weight: "300",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const openSans = Open_Sans({
+  variable: "--font-open-sans",
   subsets: ["latin"],
 });
 
@@ -27,9 +28,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${karantina.variable} ${openSans.variable} antialiased`}
       >
-        <main className="flex flex-col gap-[32px] row-start-2 items-center">
+        <main className="flex flex-col items-center gap-[32px] row-start-2">
           <Link href="/">
             <Image
               src="/logo.svg"
