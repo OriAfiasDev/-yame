@@ -18,3 +18,7 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.hover {
+  @apply hover:rotate-8 hover:scale-125 duration-[0.2s];
+}
