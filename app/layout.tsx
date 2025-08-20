@@ -30,7 +30,7 @@ export default function RootLayout({
       <body
         className={`${karantina.variable} ${openSans.variable} antialiased`}
       >
-        <main className="flex flex-col items-center gap-[32px] row-start-2">
+        <main className="flex flex-col items-center gap-[32px] row-start-2 bg-gradient-to-b from-blue-100 to-white h-screen">
           <Link href="/">
             <Image
               src="/logo.svg"
