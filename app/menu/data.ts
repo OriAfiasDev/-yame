@@ -27,6 +27,8 @@ export const dataSet: TCategory[] = [
         name: "נשנוש חלומי קראנצ'י",
         description: "אצבעות חלומי מטוגנות בזיגוג טריאקי ושומשום",
         price: 59,
+        thumbnail:
+          "https://vpjgxnutcrreojzqewaw.supabase.co/storage/v1/object/public/images/IMG_0032.jpg",
       },
       {
         id: "dish_1_4",
@@ -34,6 +36,8 @@ export const dataSet: TCategory[] = [
         description:
           "קרעי גבינת מוצרלה, עגבניות שרי, בצל סגול, בזיליקום, בלסמי מצומצם ומלח גס",
         price: 59,
+        thumbnail:
+          "https://vpjgxnutcrreojzqewaw.supabase.co/storage/v1/object/public/images/IMG_9914.jpg",
       },
       {
         id: "dish_1_5",
@@ -43,6 +47,8 @@ export const dataSet: TCategory[] = [
         price: 59,
         spicy: true,
         recommended: true,
+        thumbnail:
+          "https://vpjgxnutcrreojzqewaw.supabase.co/storage/v1/object/public/images/IMG_0037.jpg",
       },
       {
         id: "dish_1_6",
@@ -50,6 +56,8 @@ export const dataSet: TCategory[] = [
         description:
           "5 יח' עלי גפן במילוי אורז לבן בהכנה ביתית, חומש על לאבנה עם שמן זית",
         price: 59,
+        thumbnail:
+          "https://vpjgxnutcrreojzqewaw.supabase.co/storage/v1/object/public/images/IMG_9977.jpg",
       },
       {
         id: "dish_1_7",
@@ -149,6 +157,8 @@ export const dataSet: TCategory[] = [
         name: "סטייק אנטריקוט",
         description: "אנטריקוס ארגנטינאי פרימיום 300 גרם",
         price: 159,
+        thumbnail:
+          "https://vpjgxnutcrreojzqewaw.supabase.co/storage/v1/object/public/images/IMG_0044.jpg",
       },
       {
         id: "dish_2_6",
@@ -163,6 +173,8 @@ export const dataSet: TCategory[] = [
 תוספות: ביצת עין / בצל מטוגן / פטריות`,
         price: 89,
         recommended: true,
+        thumbnail:
+          "https://vpjgxnutcrreojzqewaw.supabase.co/storage/v1/object/public/images/IMG_9963.jpg",
       },
       {
         id: "dish_2_8",
@@ -357,6 +369,8 @@ export const dataSet: TCategory[] = [
           "פסטה פטוצ׳יני, רוטב שמנת, בטטה, ערמונים, פרמזן, בזיליקום טרי",
         price: 79,
         recommended: true,
+        thumbnail:
+          "https://vpjgxnutcrreojzqewaw.supabase.co/storage/v1/object/public/images/IMG_0063.jpg",
       },
       {
         id: "dish_6_4",
@@ -620,6 +634,8 @@ export const dataSet: TCategory[] = [
         name: "גרניטה לימונענע",
         description: "",
         price: 19,
+        thumbnail:
+          "https://vpjgxnutcrreojzqewaw.supabase.co/storage/v1/object/public/images/IMG_0147.jpg",
       },
       {
         id: "dish_10_3",
@@ -787,6 +803,8 @@ export const dataSet: TCategory[] = [
         name: "אפרול שפריץ",
         description: "אפרול, קאווה, סודה, סלייס תפוז",
         price: 59,
+        thumbnail:
+          "https://vpjgxnutcrreojzqewaw.supabase.co/storage/v1/object/public/images/IMG_0204.jpg",
       },
       {
         id: "dish_15_4",
@@ -799,6 +817,8 @@ export const dataSet: TCategory[] = [
         name: "אייס לימונארק",
         description: "ערק, לימונים, נענע טריה. מוגש גרוס",
         price: 59,
+        thumbnail:
+          "https://vpjgxnutcrreojzqewaw.supabase.co/storage/v1/object/public/images/IMG_0147.jpg",
       },
       {
         id: "dish_15_6",
@@ -821,12 +841,16 @@ export const dataSet: TCategory[] = [
         name: "מונאקו",
         description: "וודקה, קוקטייל ליצי, לימונדה, פירות יער",
         price: 65,
+        thumbnail:
+          "https://vpjgxnutcrreojzqewaw.supabase.co/storage/v1/object/public/images/IMG_0107.jpg",
       },
       {
         id: "dish_16_11",
         name: "קו-טאו",
         description: "טקילה, מנגו קפוא, מונין מנגו, קוקטייל ליצ׳י",
         price: 65,
+        thumbnail:
+          "https://vpjgxnutcrreojzqewaw.supabase.co/storage/v1/object/public/images/IMG_0161.jpg",
       },
       {
         id: "dish_16_2",
