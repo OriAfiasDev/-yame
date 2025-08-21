@@ -4,13 +4,18 @@ import { useState } from "react";
 import { dataSet } from "./data";
 import { Dish } from "../components/Dish";
 import { Category } from "../components/Category";
+import { TDish } from "./types";
+import { DishModal } from "../components/DishModal";
 
 export default function Menu() {
-  const [selected, setSelected] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [selectedDish, setSelectedDish] = useState<TDish | undefined>(
+    undefined
+  );
 
-  const category = dataSet.find(({ id }) => id === selected);
+  const category = dataSet.find(({ id }) => id === selectedCategory);
 
-  const containerClass = selected
+  const containerClass = selectedCategory
     ? "flex items-center lg:w-3/4 w-full overflow-x-scroll gap-2 p-6 touch-auto"
     : "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4";
 
@@ -24,9 +29,9 @@ export default function Menu() {
               <Category
                 key={category.id}
                 {...category}
-                isSelected={selected === category.id}
-                onClick={() => setSelected(category.id)}
-                fullView={!selected}
+                isSelected={selectedCategory === category.id}
+                onClick={() => setSelectedCategory(category.id)}
+                fullView={!selectedCategory}
               />
             );
           })}
@@ -39,8 +44,16 @@ export default function Menu() {
           </div>
         )}
         {category &&
-          category?.dishes.map((dish) => <Dish key={dish.id} {...dish} />)}
+          category?.dishes.map((dish) => (
+            <Dish key={dish.id} onClick={setSelectedDish} {...dish} />
+          ))}
       </div>
+
+      <DishModal
+        isOpen={!!selectedDish}
+        onClose={() => setSelectedDish(undefined)}
+        dish={selectedDish}
+      />
     </div>
   );
 }
