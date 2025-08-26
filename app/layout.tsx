@@ -26,6 +26,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="preconnect"
+          href="https://vpjgxnutcrreojzqewaw.supabase.co"
+        />
+      </head>
       <body
         className={`${karantina.variable} ${openSans.variable} antialiased`}
       >
