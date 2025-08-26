@@ -16,6 +16,7 @@ export function Button({ Icon, title, name }: Props) {
       <button
         className="flex justify-center items-center bg-white shadow-2xl border-2 border-yame rounded-full w-24 h-24 cursor-pointer"
         name={name}
+        aria-label={name}
       >
         <Icon className="text-yame text-6xl text-center" />
       </button>
