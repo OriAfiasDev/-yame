@@ -17,7 +17,7 @@ export function Category({
   fullView,
 }: Props) {
   return (
-    <div
+    <button
       onClick={onClick}
       style={{ background: `url(${thumbnail || defaultThumbnail})` }}
       className={`rounded-2xl shadow-xl ${fullView ? "min-w-48" : "min-w-24"} ${
@@ -28,6 +28,6 @@ export function Category({
       <div className="flex justify-center items-center bg-black opacity-75 rounded-2xl w-full h-full text-white text-2xl text-center">
         {name}
       </div>
-    </div>
+    </button>
   );
 }

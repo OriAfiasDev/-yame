@@ -13,7 +13,7 @@ export const Dish = ({ onClick, ...dish }: Props) => {
     "https://vpjgxnutcrreojzqewaw.supabase.co/storage/v1/object/public/images/nodish.jpg";
 
   return (
-    <div
+    <button
       className="relative flex justify-between items-start gap-6 bg-white shadow-[0_4px_8px_0_rgba(0,0,0,0.2),0_6px_20px_0_rgba(0,0,0,0.19)] p-3 rounded-3xl w-full"
       onClick={() => onClick(dish)}
     >
@@ -57,6 +57,6 @@ export const Dish = ({ onClick, ...dish }: Props) => {
           )}
         </div>
       </div>
-    </div>
+    </button>
   );
 };
