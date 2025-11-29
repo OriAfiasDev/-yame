@@ -24,7 +24,7 @@ export function DishModal({ dish, isOpen, onClose }: Props) {
             {name}
           </h2>
           <img
-            className="my-auto mb-2 rounded-2xl w-full lg:w-[200px] h-full max-h-[240px] object-cover"
+            className="my-auto mb-2 rounded-2xl w-full lg:w-[480px] h-full max-h-[240px] object-cover"
             src={image}
             alt={name}
           />
