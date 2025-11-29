@@ -158,7 +158,7 @@ export const dataSet: TCategory[] = [
         description: "אנטריקוס ארגנטינאי פרימיום 300 גרם",
         price: 159,
         thumbnail:
-          "https://vpjgxnutcrreojzqewaw.supabase.co/storage/v1/object/public/images/IMG_0044.jpg",
+          "https://vpjgxnutcrreojzqewaw.supabase.co/storage/v1/object/public/images/dish_2_5.jpg",
       },
       {
         id: "dish_2_6",
@@ -174,7 +174,7 @@ export const dataSet: TCategory[] = [
         price: 89,
         recommended: true,
         thumbnail:
-          "https://vpjgxnutcrreojzqewaw.supabase.co/storage/v1/object/public/images/IMG_9963.jpg",
+          "https://vpjgxnutcrreojzqewaw.supabase.co/storage/v1/object/public/images/dish_2_7.jpg",
       },
       {
         id: "dish_2_8",
@@ -191,7 +191,7 @@ export const dataSet: TCategory[] = [
         price: 79,
         recommended: true,
         thumbnail:
-          "https://vpjgxnutcrreojzqewaw.supabase.co/storage/v1/object/public/images/dish_2_9.png",
+          "https://vpjgxnutcrreojzqewaw.supabase.co/storage/v1/object/public/images/dish_2_9.jpg",
       },
     ],
   },
