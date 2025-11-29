@@ -190,6 +190,8 @@ export const dataSet: TCategory[] = [
 לחם לבן / דגנים לבחירה`,
         price: 79,
         recommended: true,
+        thumbnail:
+          "https://vpjgxnutcrreojzqewaw.supabase.co/storage/v1/object/public/images/dish_2_9.png",
       },
     ],
   },
