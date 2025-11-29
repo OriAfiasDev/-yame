@@ -10,7 +10,7 @@ const Modal = ({ isOpen, onClose, children }: ModalProps) => {
 
   return (
     <div
-      className="z-[999] fixed inset-0 flex justify-center items-center bg-opacity-50 backdrop-blur-lg"
+      className="z-[999] fixed inset-0 flex justify-center items-center bg-opacity-50 backdrop-blur-lg backdrop-brightness-75"
       onClick={onClose}
     >
       <div className="relative bg-white shadow-lg p-6 rounded-4xl max-w-[90%] max-h-[90%]">
