@@ -7,6 +7,7 @@ import { Category } from "../components/Category";
 import { TDish } from "./types";
 import { DishModal } from "../components/DishModal";
 import { useLanguage } from "../LanguageContext";
+import { LanguagePicker } from "../components/LanguagePicker";
 
 export default function Menu() {
   const { language } = useLanguage();
@@ -23,6 +24,7 @@ export default function Menu() {
 
   return (
     <div className="flex flex-col items-center w-screen" dir="rtl">
+      <LanguagePicker />
       <div className={containerClass}>
         {dataSet
           .sort((a, b) => (a.order || 0) - (b.order || 0))

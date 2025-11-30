@@ -1,3 +1,5 @@
+"use client";
+
 import React, {
   createContext,
   useState,
@@ -5,11 +7,11 @@ import React, {
   PropsWithChildren,
 } from "react";
 
-type Lang = "he" | "en" | "ar" | "ru" | "fr";
+export type Lang = "he" | "en" | "ar" | "ru" | "fr";
 
 interface Props {
   language: Lang;
-  setLanguage: React.Dispatch<React.SetStateAction<Lang>>;
+  setLanguage: (lang: Lang) => void;
 }
 
 const LanguageContext = createContext<Props>({
