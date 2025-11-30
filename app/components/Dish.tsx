@@ -1,3 +1,4 @@
+import { useLanguage } from "../LanguageContext";
 import { TDish } from "../menu/types";
 
 interface Props extends TDish {
@@ -5,6 +6,7 @@ interface Props extends TDish {
 }
 
 export const Dish = ({ onClick, ...dish }: Props) => {
+  const { language } = useLanguage();
   const { thumbnail, recommended, name, description, vegan, price, spicy } =
     dish;
 
@@ -25,17 +27,17 @@ export const Dish = ({ onClick, ...dish }: Props) => {
       <img
         className="my-auto rounded-2xl w-[100px] lg:w-[200px] h-full max-h-[120px] object-cover hover:scale-150 transition-transform hover:translate-x-[-17%] duration-[0.2s]"
         src={image}
-        alt={name}
+        alt={name[language]}
       />
       <div className="w-full overflow-hidden text-yame text-right whitespace-nowrap">
         <h2 className="font-karantina font-semibold text-3xl align-top tracking-wider">
-          {name}
+          {name[language]}
         </h2>
         <pre
           className="overflow-hidden font-open-sans font-normal text-black lg:text-md text-ellipsis"
-          title={description}
+          title={description[language]}
         >
-          {description}
+          {description[language]}
         </pre>
         <div className="flex items-center gap-2 mt-2 font-karantina tracking-widest">
           <div className="text-yame text-3xl">{price} ₪</div>

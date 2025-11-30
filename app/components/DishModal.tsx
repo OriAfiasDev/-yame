@@ -1,3 +1,4 @@
+import { useLanguage } from "../LanguageContext";
 import { TDish } from "../menu/types";
 import { Dish } from "./Dish";
 import Modal, { ModalProps } from "./Modal";
@@ -7,6 +8,7 @@ interface Props extends ModalProps {
 }
 
 export function DishModal({ dish, isOpen, onClose }: Props) {
+  const { language } = useLanguage();
   if (!dish) return;
 
   const { thumbnail, recommended, name, description, vegan, price, spicy } =
@@ -21,18 +23,18 @@ export function DishModal({ dish, isOpen, onClose }: Props) {
       <div className="flex flex-col items-center text-center">
         <div className="w-full overflow-hidden text-yame text-right whitespace-nowrap">
           <h2 className="mb-2 font-karantina font-semibold text-3xl text-center align-top tracking-wider">
-            {name}
+            {name[language]}
           </h2>
           <img
             className="my-auto mb-2 rounded-2xl w-full lg:w-[480px] h-full max-h-[240px] object-cover"
             src={image}
-            alt={name}
+            alt={name[language]}
           />
           <pre
             className="font-open-sans font-normal text-black text-lg text-center whitespace-break-spaces"
-            title={description}
+            title={description[language]}
           >
-            {description}
+            {description[language]}
           </pre>
           <div className="flex flex-row-reverse justify-start items-center gap-2 mt-2 font-karantina tracking-widest">
             <div className="text-yame text-3xl">{price} ₪</div>

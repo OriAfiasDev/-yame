@@ -1,3 +1,4 @@
+import { useLanguage } from "../LanguageContext";
 import { TCategory } from "../menu/types";
 
 interface Props extends TCategory {
@@ -16,6 +17,7 @@ export function Category({
   isSelected,
   fullView,
 }: Props) {
+  const { language } = useLanguage();
   return (
     <button
       onClick={onClick}
@@ -26,7 +28,7 @@ export function Category({
       aria-selected={isSelected}
     >
       <div className="flex justify-center items-center bg-black opacity-75 rounded-2xl w-full h-full text-white text-2xl text-center">
-        {name}
+        {name[language]}
       </div>
     </button>
   );

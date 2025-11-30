@@ -6,8 +6,10 @@ import { Dish } from "../components/Dish";
 import { Category } from "../components/Category";
 import { TDish } from "./types";
 import { DishModal } from "../components/DishModal";
+import { useLanguage } from "../LanguageContext";
 
 export default function Menu() {
+  const { language } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedDish, setSelectedDish] = useState<TDish | undefined>(
     undefined
@@ -40,7 +42,7 @@ export default function Menu() {
       <div className="flex flex-col gap-3 px-6 w-full">
         {category?.description && (
           <div className="bg-yame shadow-2xl py-2 rounded-lg w-full text-white text-center">
-            {category.description}
+            {category.description[language]}
           </div>
         )}
         {category &&

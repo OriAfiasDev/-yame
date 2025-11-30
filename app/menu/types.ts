@@ -1,7 +1,7 @@
 export type TDish = {
   id: string;
-  name: string;
-  description: string;
+  name: LangObject;
+  description: LangObject;
   price: number;
   thumbnail?: string;
   recommended?: boolean;
@@ -12,9 +12,17 @@ export type TDish = {
 
 export type TCategory = {
   id: string;
-  name: string;
-  description?: string;
+  name: LangObject;
+  description?: LangObject;
   thumbnail?: string;
   dishes: TDish[];
   order?: number;
+};
+
+type LangObject = {
+  he: string;
+  en: string;
+  ru: string;
+  fr: string;
+  ar: string;
 };
