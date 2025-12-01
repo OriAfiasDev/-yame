@@ -1,3 +1,5 @@
+"use client";
+
 import { useLanguage } from "../LanguageContext";
 import { TDish } from "../menu/types";
 import Modal, { ModalProps } from "./Modal";
