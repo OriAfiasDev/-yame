@@ -19,7 +19,7 @@ export type TCategory = {
   order?: number;
 };
 
-type LangObject = {
+export type LangObject = {
   he: string;
   en: string;
   ru: string;

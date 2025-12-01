@@ -1,66 +1,75 @@
-"use client";
+import { LangObject, TCategory } from "./types";
+import MenuClient from "./MenuClient";
+import { supabase } from "../supabase";
 
-import { useState } from "react";
-import { dataSet } from "./data";
-import { Dish } from "../components/Dish";
-import { Category } from "../components/Category";
-import { TDish } from "./types";
-import { DishModal } from "../components/DishModal";
-import { useLanguage } from "../LanguageContext";
-import { LanguagePicker } from "../components/LanguagePicker";
+async function getFullMenuData(): Promise<TCategory[]> {
+  const { data, error } = await supabase
+    .from("categories")
+    .select(
+      `
+      id,
+      thumbnail,
+      order,
+      category_translations (
+        language_code,
+        name,
+        description
+      ),
+      dishes (
+        id,
+        price,
+        thumbnail,
+        recommended,
+        vegan,
+        spicy,
+        order,
+        dish_translations (
+          language_code,
+          name,
+          description
+        )
+      )
+    `
+    )
+    .order("order", { ascending: true });
 
-export default function Menu() {
-  const { language, isRtl } = useLanguage();
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
-  const [selectedDish, setSelectedDish] = useState<TDish | undefined>(
-    undefined
-  );
+  if (error) throw error;
 
-  const category = dataSet.find(({ id }) => id === selectedCategory);
+  // Transform to your original object structure
+  return data.map((category) => ({
+    id: category.id,
+    thumbnail: category.thumbnail,
+    order: category.order,
+    name: category.category_translations.reduce((acc, t) => {
+      acc[t.language_code as keyof LangObject] = t.name;
+      return acc;
+    }, {} as LangObject),
+    description: category.category_translations.reduce((acc, t) => {
+      acc[t.language_code as keyof LangObject] = t.description || "";
+      return acc;
+    }, {} as LangObject),
+    dishes: category.dishes.map((dish) => ({
+      id: dish.id,
+      price: dish.price,
+      thumbnail: dish.thumbnail,
+      recommended: dish.recommended,
+      vegan: dish.vegan,
+      spicy: dish.spicy,
+      order: dish.order,
+      name: dish.dish_translations.reduce((acc, t) => {
+        acc[t.language_code as keyof LangObject] = t.name;
+        return acc;
+      }, {} as LangObject),
+      description: dish.dish_translations.reduce((acc, t) => {
+        acc[t.language_code as keyof LangObject] = t.description || "";
+        return acc;
+      }, {} as LangObject),
+    })),
+  }));
+}
 
-  const containerClass = selectedCategory
-    ? "flex items-center lg:w-3/4 w-full overflow-x-scroll gap-2 p-6 touch-auto"
-    : "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4";
+export default async function Menu() {
+  const menuData: TCategory[] = await getFullMenuData();
 
-  return (
-    <div
-      className="flex flex-col items-center w-screen"
-      dir={isRtl ? "rtl" : "ltr"}
-    >
-      <LanguagePicker />
-      <div className={containerClass}>
-        {dataSet
-          .sort((a, b) => (a.order || 0) - (b.order || 0))
-          .map((category) => {
-            return (
-              <Category
-                key={category.id}
-                {...category}
-                isSelected={selectedCategory === category.id}
-                onClick={() => setSelectedCategory(category.id)}
-                fullView={!selectedCategory}
-              />
-            );
-          })}
-      </div>
-
-      <div className="flex flex-col gap-3 px-6 w-full">
-        {category?.description && (
-          <div className="bg-yame shadow-2xl py-2 rounded-lg w-full text-white text-center">
-            {category.description[language]}
-          </div>
-        )}
-        {category &&
-          category?.dishes.map((dish) => (
-            <Dish key={dish.id} onClick={setSelectedDish} {...dish} />
-          ))}
-      </div>
-
-      <DishModal
-        isOpen={!!selectedDish}
-        onClose={() => setSelectedDish(undefined)}
-        dish={selectedDish}
-      />
-    </div>
-  );
+  return <MenuClient menuData={menuData} />;
 }
