@@ -28,12 +28,12 @@ const languages: { lang: Lang; flag: string }[] = [
 export const LanguagePicker = () => {
   const { language, setLanguage } = useLanguage();
   return (
-    <div className="w-[64px]">
+    <div className="z-[999] w-[64px]">
       <div className="top-4 right-4 fixed">
         <select
           value={language}
           onChange={(e) => setLanguage(e.target.value as Lang)}
-          className="bg-transparent py-2 pr-8 pl-3 rounded focus:outline-none w-full text-xl transition duration-300 appearance-none cursor-pointer ease"
+          className="bg-blue-100 py-2 pr-8 pl-3 rounded focus:outline-none w-full text-xl transition duration-300 appearance-none cursor-pointer ease"
         >
           {languages.map(({ lang, flag }) => (
             <option
