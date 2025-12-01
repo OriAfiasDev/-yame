@@ -12,18 +12,24 @@ export type Lang = "he" | "en" | "ar" | "ru" | "fr";
 interface Props {
   language: Lang;
   setLanguage: (lang: Lang) => void;
+  isRtl: boolean;
 }
 
 const LanguageContext = createContext<Props>({
   language: "he",
   setLanguage: () => {},
+  isRtl: true,
 });
+
+const rtlLangs = ["he", "ar"];
 
 export const LanguageProvider = ({ children }: PropsWithChildren) => {
   const [language, setLanguage] = useState<Lang>("he");
 
+  const isRtl = rtlLangs.includes(language);
+
   return (
-    <LanguageContext.Provider value={{ language, setLanguage }}>
+    <LanguageContext.Provider value={{ language, setLanguage, isRtl }}>
       {children}
     </LanguageContext.Provider>
   );

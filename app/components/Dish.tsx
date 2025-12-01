@@ -6,7 +6,7 @@ interface Props extends TDish {
 }
 
 export const Dish = ({ onClick, ...dish }: Props) => {
-  const { language } = useLanguage();
+  const { language, isRtl } = useLanguage();
   const { thumbnail, recommended, name, description, vegan, price, spicy } =
     dish;
 
@@ -29,7 +29,11 @@ export const Dish = ({ onClick, ...dish }: Props) => {
         src={image}
         alt={name[language]}
       />
-      <div className="w-full overflow-hidden text-yame text-right whitespace-nowrap">
+      <div
+        className={`w-full overflow-hidden text-yame whitespace-nowrap ${
+          isRtl ? "text-right" : "text-left"
+        }`}
+      >
         <h2 className="font-karantina font-semibold text-3xl align-top tracking-wider">
           {name[language]}
         </h2>

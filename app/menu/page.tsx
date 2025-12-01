@@ -10,7 +10,7 @@ import { useLanguage } from "../LanguageContext";
 import { LanguagePicker } from "../components/LanguagePicker";
 
 export default function Menu() {
-  const { language } = useLanguage();
+  const { language, isRtl } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedDish, setSelectedDish] = useState<TDish | undefined>(
     undefined
@@ -23,7 +23,10 @@ export default function Menu() {
     : "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4";
 
   return (
-    <div className="flex flex-col items-center w-screen" dir="rtl">
+    <div
+      className="flex flex-col items-center w-screen"
+      dir={isRtl ? "rtl" : "ltr"}
+    >
       <LanguagePicker />
       <div className={containerClass}>
         {dataSet

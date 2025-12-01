@@ -1,50 +1,65 @@
 "use client";
 
-import Image from "next/image";
 import { Lang, useLanguage } from "../LanguageContext";
 
 const languages: { lang: Lang; flag: string }[] = [
   {
     lang: "he",
-    flag: "https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg",
+    flag: "🇮🇱",
   },
   {
     lang: "en",
-    flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Flag_of_the_United_States_%28DDD-F-416E_specifications%29.svg/330px-Flag_of_the_United_States_%28DDD-F-416E_specifications%29.svg.png",
+    flag: "🇺🇸",
   },
   {
     lang: "ru",
-    flag: "https://www.shutterstock.com/image-illustration/russia-flag-national-rectangular-cloth-260nw-2339861843.jpg",
+    flag: "🇷🇺",
   },
   {
     lang: "ar",
-    flag: "https://upload.wikimedia.org/wikipedia/commons/2/2b/Flag_of_the_Arab_League.svg",
+    flag: "🇸🇦",
   },
   {
     lang: "fr",
-    flag: "https://www.flagdetective.com/images/download/france.jpg",
+    flag: "🇫🇷",
   },
 ];
 
 export const LanguagePicker = () => {
   const { language, setLanguage } = useLanguage();
-
-  console.log({ language });
-
   return (
-    <div className="flex gap-2 w-full h-10">
-      {languages.map(({ lang, flag }) => (
-        <div
-          className="cursor-pointer"
-          key={lang}
-          onClick={() => {
-            console.log("click", lang);
-            setLanguage(lang);
-          }}
+    <div className="w-[64px]">
+      <div className="top-4 right-4 fixed">
+        <select
+          value={language}
+          onChange={(e) => setLanguage(e.target.value as Lang)}
+          className="bg-transparent py-2 pr-8 pl-3 rounded focus:outline-none w-full text-xl transition duration-300 appearance-none cursor-pointer ease"
         >
-          <img src={flag} height={10} width={30} alt={lang} />
-        </div>
-      ))}
+          {languages.map(({ lang, flag }) => (
+            <option
+              key={lang}
+              value={lang}
+              className="flex justify-center items-center"
+            >
+              {flag}
+            </option>
+          ))}
+        </select>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.2"
+          stroke="currentColor"
+          className="top-3 right-1 absolute ml-1 w-5 h-5 text-slate-700"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+          />
+        </svg>
+      </div>
     </div>
   );
 };
