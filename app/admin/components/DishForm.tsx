@@ -96,9 +96,11 @@ export function DishForm({
         {initialData ? "עריכת מנה" : "יצירת מנה"}
       </h3>
 
-      <div className="grid grid-cols-1 gap-2">
+      <div className="gap-2 grid grid-cols-1">
         <div>
-          <label className="block mb-1 font-medium text-black text-sm">שם (עברית)</label>
+          <label className="block mb-1 font-medium text-black text-sm">
+            שם (עברית)
+          </label>
           <input
             type="text"
             value={name.he}
@@ -109,7 +111,9 @@ export function DishForm({
         </div>
 
         <div>
-          <label className="block mb-1 font-medium text-black text-sm">שם (English)</label>
+          <label className="block mb-1 font-medium text-black text-sm">
+            שם (English)
+          </label>
           <input
             type="text"
             value={name.en}
@@ -119,7 +123,9 @@ export function DishForm({
         </div>
 
         <div>
-          <label className="block mb-1 font-medium text-black text-sm">שם (Русский)</label>
+          <label className="block mb-1 font-medium text-black text-sm">
+            שם (Русский)
+          </label>
           <input
             type="text"
             value={name.ru}
@@ -129,7 +135,9 @@ export function DishForm({
         </div>
 
         <div>
-          <label className="block mb-1 font-medium text-black text-sm">שם (Français)</label>
+          <label className="block mb-1 font-medium text-black text-sm">
+            שם (Français)
+          </label>
           <input
             type="text"
             value={name.fr}
@@ -139,7 +147,9 @@ export function DishForm({
         </div>
 
         <div>
-          <label className="block mb-1 font-medium text-black text-sm">اسم (العربية)</label>
+          <label className="block mb-1 font-medium text-black text-sm">
+            اسم (العربية)
+          </label>
           <input
             type="text"
             value={name.ar}
@@ -149,50 +159,70 @@ export function DishForm({
         </div>
 
         <div>
-          <label className="block mb-1 font-medium text-black text-sm">תיאור (עברית)</label>
+          <label className="block mb-1 font-medium text-black text-sm">
+            תיאור (עברית)
+          </label>
           <textarea
             value={description.he}
-            onChange={(e) => setDescription({ ...description, he: e.target.value })}
+            onChange={(e) =>
+              setDescription({ ...description, he: e.target.value })
+            }
             className="bg-white px-3 py-2 border border-bg-yame rounded-md focus:outline-none focus:ring-2 focus:ring-bg-yame w-full text-black"
             rows={2}
           />
         </div>
 
         <div>
-          <label className="block mb-1 font-medium text-black text-sm">Description (English)</label>
+          <label className="block mb-1 font-medium text-black text-sm">
+            Description (English)
+          </label>
           <textarea
             value={description.en}
-            onChange={(e) => setDescription({ ...description, en: e.target.value })}
+            onChange={(e) =>
+              setDescription({ ...description, en: e.target.value })
+            }
             className="bg-white px-3 py-2 border border-bg-yame rounded-md focus:outline-none focus:ring-2 focus:ring-bg-yame w-full text-black"
             rows={2}
           />
         </div>
 
         <div>
-          <label className="block mb-1 font-medium text-black text-sm">Описание (Русский)</label>
+          <label className="block mb-1 font-medium text-black text-sm">
+            Описание (Русский)
+          </label>
           <textarea
             value={description.ru}
-            onChange={(e) => setDescription({ ...description, ru: e.target.value })}
+            onChange={(e) =>
+              setDescription({ ...description, ru: e.target.value })
+            }
             className="bg-white px-3 py-2 border border-bg-yame rounded-md focus:outline-none focus:ring-2 focus:ring-bg-yame w-full text-black"
             rows={2}
           />
         </div>
 
         <div>
-          <label className="block mb-1 font-medium text-black text-sm">Description (Français)</label>
+          <label className="block mb-1 font-medium text-black text-sm">
+            Description (Français)
+          </label>
           <textarea
             value={description.fr}
-            onChange={(e) => setDescription({ ...description, fr: e.target.value })}
+            onChange={(e) =>
+              setDescription({ ...description, fr: e.target.value })
+            }
             className="bg-white px-3 py-2 border border-bg-yame rounded-md focus:outline-none focus:ring-2 focus:ring-bg-yame w-full text-black"
             rows={2}
           />
         </div>
 
         <div>
-          <label className="block mb-1 font-medium text-black text-sm">الوصف (العربية)</label>
+          <label className="block mb-1 font-medium text-black text-sm">
+            الوصف (العربية)
+          </label>
           <textarea
             value={description.ar}
-            onChange={(e) => setDescription({ ...description, ar: e.target.value })}
+            onChange={(e) =>
+              setDescription({ ...description, ar: e.target.value })
+            }
             className="bg-white px-3 py-2 border border-bg-yame rounded-md focus:outline-none focus:ring-2 focus:ring-bg-yame w-full text-black"
             rows={2}
           />

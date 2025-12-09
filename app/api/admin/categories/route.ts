@@ -73,7 +73,10 @@ export async function GET() {
     return NextResponse.json(transformedData);
   } catch (error) {
     return NextResponse.json(
-      { error: error instanceof Error ? error.message : "Failed to fetch categories" },
+      {
+        error:
+          error instanceof Error ? error.message : "Failed to fetch categories",
+      },
       { status: 500 }
     );
   }
@@ -102,11 +105,17 @@ export async function POST(request: NextRequest) {
 
     if (categoryError) {
       console.error("Failed to insert category:", categoryError, { body });
-      return NextResponse.json({ error: categoryError.message }, { status: 500 });
+      return NextResponse.json(
+        { error: categoryError.message },
+        { status: 500 }
+      );
     }
     if (!categoryData || categoryData.length === 0) {
       console.error("No category returned from insert", { body });
-      return NextResponse.json({ error: "Failed to create category" }, { status: 500 });
+      return NextResponse.json(
+        { error: "Failed to create category" },
+        { status: 500 }
+      );
     }
 
     const categoryId = categoryData[0].id;
@@ -124,15 +133,25 @@ export async function POST(request: NextRequest) {
       .insert(translations);
 
     if (translationError) {
-      console.error("Failed to insert translations:", translationError, { translations, body });
-      return NextResponse.json({ error: translationError.message }, { status: 500 });
+      console.error("Failed to insert translations:", translationError, {
+        translations,
+        body,
+      });
+      return NextResponse.json(
+        { error: translationError.message },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json(categoryData[0], { status: 201 });
   } catch (error) {
     const errMsg =
-      error instanceof Error ? error.message : JSON.stringify(error, Object.getOwnPropertyNames(error));
-    console.error("Unhandled error in POST /api/admin/categories:", error, { body });
+      error instanceof Error
+        ? error.message
+        : JSON.stringify(error, Object.getOwnPropertyNames(error));
+    console.error("Unhandled error in POST /api/admin/categories:", error, {
+      body,
+    });
     return NextResponse.json({ error: errMsg }, { status: 500 });
   }
 }

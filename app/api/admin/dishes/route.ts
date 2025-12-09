@@ -58,7 +58,10 @@ export async function POST(request: NextRequest) {
     }
     if (!dishData || dishData.length === 0) {
       console.error("No dish returned from insert", { body });
-      return NextResponse.json({ error: "Failed to create dish" }, { status: 500 });
+      return NextResponse.json(
+        { error: "Failed to create dish" },
+        { status: 500 }
+      );
     }
 
     const dishId = dishData[0].id;
@@ -77,15 +80,22 @@ export async function POST(request: NextRequest) {
 
     if (translationError) {
       const msg = translationError.message || JSON.stringify(translationError);
-      console.error("Failed to insert translations:", translationError, { translations, body });
+      console.error("Failed to insert translations:", translationError, {
+        translations,
+        body,
+      });
       return NextResponse.json({ error: msg }, { status: 500 });
     }
 
     return NextResponse.json(dishData[0], { status: 201 });
   } catch (error) {
     const errMsg =
-      error instanceof Error ? error.message : JSON.stringify(error, Object.getOwnPropertyNames(error));
-    console.error("Unhandled error in POST /api/admin/dishes:", error, { body });
+      error instanceof Error
+        ? error.message
+        : JSON.stringify(error, Object.getOwnPropertyNames(error));
+    console.error("Unhandled error in POST /api/admin/dishes:", error, {
+      body,
+    });
     return NextResponse.json({ error: errMsg }, { status: 500 });
   }
 }

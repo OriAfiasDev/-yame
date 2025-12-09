@@ -37,7 +37,10 @@ export async function PUT(
     return NextResponse.json({ success: true });
   } catch (error) {
     return NextResponse.json(
-      { error: error instanceof Error ? error.message : "Failed to update category" },
+      {
+        error:
+          error instanceof Error ? error.message : "Failed to update category",
+      },
       { status: 500 }
     );
   }
@@ -63,7 +66,10 @@ export async function DELETE(
     return NextResponse.json({ success: true });
   } catch (error) {
     return NextResponse.json(
-      { error: error instanceof Error ? error.message : "Failed to delete category" },
+      {
+        error:
+          error instanceof Error ? error.message : "Failed to delete category",
+      },
       { status: 500 }
     );
   }

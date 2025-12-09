@@ -10,10 +10,21 @@ export async function PUT(
   try {
     const { id } = await params;
     body = await request.json();
-    const { name, description, price, thumbnail, recommended, vegan, spicy, order } = body;
+    const {
+      name,
+      description,
+      price,
+      thumbnail,
+      recommended,
+      vegan,
+      spicy,
+      order,
+    } = body;
     const dishId = id;
 
-    console.log("PUT /api/admin/dishes/[id] called with dishId:", dishId, { body });
+    console.log("PUT /api/admin/dishes/[id] called with dishId:", dishId, {
+      body,
+    });
 
     // Validate input
     if (!name || typeof name !== "object") {
@@ -54,7 +65,11 @@ export async function PUT(
       .eq("id", dishId)
       .select();
 
-    console.log("Supabase update response:", { dishData, dishError, rowsAffected: dishData?.length });
+    console.log("Supabase update response:", {
+      dishData,
+      dishError,
+      rowsAffected: dishData?.length,
+    });
 
     if (dishError) {
       console.error("Failed to update dish:", dishError, { dishId, body });
@@ -63,10 +78,13 @@ export async function PUT(
 
     if (!dishData || dishData.length === 0) {
       console.warn("Update returned no rows:", { dishId });
-      return NextResponse.json({
-        success: false,
-        error: "No rows updated",
-      }, { status: 500 });
+      return NextResponse.json(
+        {
+          success: false,
+          error: "No rows updated",
+        },
+        { status: 500 }
+      );
     }
 
     // Update translations (use admin client for write)
@@ -81,16 +99,27 @@ export async function PUT(
         .eq("language_code", lang);
 
       if (translationError) {
-        console.error("Failed to update translation:", translationError, { dishId, lang, body });
-        return NextResponse.json({ error: translationError.message }, { status: 500 });
+        console.error("Failed to update translation:", translationError, {
+          dishId,
+          lang,
+          body,
+        });
+        return NextResponse.json(
+          { error: translationError.message },
+          { status: 500 }
+        );
       }
     }
 
     return NextResponse.json({ success: true, updated: dishData[0] });
   } catch (error) {
     const errMsg =
-      error instanceof Error ? error.message : JSON.stringify(error, Object.getOwnPropertyNames(error));
-    console.error("Unhandled error in PUT /api/admin/dishes/[id]:", error, { body });
+      error instanceof Error
+        ? error.message
+        : JSON.stringify(error, Object.getOwnPropertyNames(error));
+    console.error("Unhandled error in PUT /api/admin/dishes/[id]:", error, {
+      body,
+    });
     return NextResponse.json({ error: errMsg }, { status: 500 });
   }
 }
@@ -121,7 +150,9 @@ export async function DELETE(
     return NextResponse.json({ success: true });
   } catch (error) {
     return NextResponse.json(
-      { error: error instanceof Error ? error.message : "Failed to delete dish" },
+      {
+        error: error instanceof Error ? error.message : "Failed to delete dish",
+      },
       { status: 500 }
     );
   }
