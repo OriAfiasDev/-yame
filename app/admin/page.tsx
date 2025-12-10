@@ -42,7 +42,7 @@ export default function AdminPage() {
     fetchCategories().then(setCategories);
   }, []);
 
-  if (!isAdmin || !categories.length) return <div>Loading...</div>;
+  if (!isAdmin || !categories.length) return null;
 
   return <AdminClient initialCategories={categories} />;
 }

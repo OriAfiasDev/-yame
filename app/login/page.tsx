@@ -2,24 +2,15 @@
 
 import { supabase } from "@/app/supabase";
 import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [message, setMessage] = useState<string | null>(null);
   const [user, setUser] = useState<any>(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  useEffect(() => {
-    const errorParam = searchParams.get("error");
-    const messageParam = searchParams.get("message");
-    if (errorParam) setError(decodeURIComponent(errorParam));
-    if (messageParam) setMessage(decodeURIComponent(messageParam));
-  }, [searchParams]);
 
   useEffect(() => {
     const checkUser = async () => {
@@ -81,30 +72,11 @@ export default function LoginPage() {
     }
   };
 
-  const handleLogout = async () => {
-    try {
-      setLoading(true);
-      await supabase.auth.signOut();
-      setUser(null);
-      setError(null);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "An error occurred");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <>
       {error && (
         <div className="bg-red-50 mb-6 p-4 border border-red-200 rounded-lg">
           <p className="text-red-700 text-sm">{error}</p>
-        </div>
-      )}
-
-      {message && (
-        <div className="bg-yellow-50 mb-6 p-4 border border-yellow-200 rounded-lg">
-          <p className="text-yellow-800 text-sm">{message}</p>
         </div>
       )}
 
@@ -161,14 +133,6 @@ export default function LoginPage() {
                 : "אתה לא admin. פנה למנהל כדי לקבל גישה"}
             </p>
           </div>
-
-          <button
-            onClick={handleLogout}
-            disabled={loading}
-            className="bg-red-50 hover:bg-red-100 disabled:opacity-50 px-4 py-3 rounded-xl w-full font-medium text-red-700 transition-colors"
-          >
-            {loading ? "טוען..." : "התנתקות"}
-          </button>
         </div>
       )}
     </>
