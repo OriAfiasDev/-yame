@@ -35,7 +35,6 @@ async function getFullMenuData(): Promise<TCategory[]> {
 
   if (error) throw error;
 
-  // Transform to your original object structure
   return data.map((category) => ({
     id: category.id,
     thumbnail: category.thumbnail,

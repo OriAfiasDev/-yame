@@ -2,7 +2,6 @@ import { supabase } from "@/app/supabase";
 import { NextRequest, NextResponse } from "next/server";
 import { randomUUID } from "crypto";
 
-// POST create dish
 export async function POST(request: NextRequest) {
   let body: any = null;
   try {
@@ -19,7 +18,6 @@ export async function POST(request: NextRequest) {
       order,
     } = body;
 
-    // Basic validation
     if (!categoryId) {
       return NextResponse.json(
         { error: "categoryId is required" },
@@ -34,7 +32,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Insert dish
     const { data: dishData, error: dishError } = await supabase
       .from("dishes")
       .insert([
@@ -66,7 +63,6 @@ export async function POST(request: NextRequest) {
 
     const dishId = dishData[0].id;
 
-    // Insert translations
     const translations = Object.entries(name).map(([lang, text]) => ({
       dish_id: dishId,
       language_code: lang,

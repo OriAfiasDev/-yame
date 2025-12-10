@@ -1,7 +1,6 @@
 import { supabase, supabaseAdmin } from "@/app/supabase";
 import { NextRequest, NextResponse } from "next/server";
 
-// PUT update category
 export async function PUT(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -12,7 +11,6 @@ export async function PUT(
     const { name, description, thumbnail, order } = body;
     const categoryId = id;
 
-    // Update category (use admin client for write)
     const { error: categoryError } = await supabaseAdmin
       .from("categories")
       .update({ thumbnail, order })
@@ -20,7 +18,6 @@ export async function PUT(
 
     if (categoryError) throw categoryError;
 
-    // Update translations (use admin client for write)
     for (const [lang, text] of Object.entries(name)) {
       const { error: translationError } = await supabaseAdmin
         .from("category_translations")
@@ -46,7 +43,6 @@ export async function PUT(
   }
 }
 
-// DELETE category
 export async function DELETE(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -55,7 +51,6 @@ export async function DELETE(
     const { id } = await params;
     const categoryId = id;
 
-    // Delete category (use admin client for write; cascade delete should handle dishes)
     const { error } = await supabaseAdmin
       .from("categories")
       .delete()

@@ -3,7 +3,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { LangObject, TCategory } from "@/app/menu/types";
 import { randomUUID } from "crypto";
 
-// GET all categories
 export async function GET() {
   try {
     const { data, error } = await supabase
@@ -38,7 +37,6 @@ export async function GET() {
 
     if (error) throw error;
 
-    // Transform to proper structure
     const transformedData: TCategory[] = data.map((category: any) => ({
       id: category.id,
       thumbnail: category.thumbnail,
@@ -82,14 +80,12 @@ export async function GET() {
   }
 }
 
-// POST create category
 export async function POST(request: NextRequest) {
   let body: any = null;
   try {
     body = await request.json();
     const { name, description, thumbnail, order } = body;
 
-    // Validate input
     if (!name || typeof name !== "object") {
       return NextResponse.json(
         { error: "name must be an object with language keys" },
@@ -97,7 +93,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Insert category (use admin client for write)
     const { data: categoryData, error: categoryError } = await supabaseAdmin
       .from("categories")
       .insert([{ id: randomUUID(), thumbnail, order }])
@@ -120,7 +115,6 @@ export async function POST(request: NextRequest) {
 
     const categoryId = categoryData[0].id;
 
-    // Insert translations (use admin client for write)
     const translations = Object.entries(name).map(([lang, text]) => ({
       category_id: categoryId,
       language_code: lang,

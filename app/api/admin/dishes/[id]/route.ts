@@ -1,7 +1,6 @@
 import { supabase, supabaseAdmin } from "@/app/supabase";
 import { NextRequest, NextResponse } from "next/server";
 
-// PUT update dish
 export async function PUT(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -22,11 +21,6 @@ export async function PUT(
     } = body;
     const dishId = id;
 
-    console.log("PUT /api/admin/dishes/[id] called with dishId:", dishId, {
-      body,
-    });
-
-    // Validate input
     if (!name || typeof name !== "object") {
       return NextResponse.json(
         { error: "name must be an object with language keys" },
@@ -34,14 +28,11 @@ export async function PUT(
       );
     }
 
-    // Check if dish exists first
     const { data: existingDish, error: checkError } = await supabase
       .from("dishes")
       .select("id")
       .eq("id", dishId)
       .single();
-
-    console.log("Check dish exists:", { existingDish, checkError });
 
     if (checkError || !existingDish) {
       console.warn("Dish not found with id:", dishId);
@@ -51,7 +42,6 @@ export async function PUT(
       );
     }
 
-    // Update dish (use admin client for write)
     const { data: dishData, error: dishError } = await supabaseAdmin
       .from("dishes")
       .update({
@@ -64,12 +54,6 @@ export async function PUT(
       })
       .eq("id", dishId)
       .select();
-
-    console.log("Supabase update response:", {
-      dishData,
-      dishError,
-      rowsAffected: dishData?.length,
-    });
 
     if (dishError) {
       console.error("Failed to update dish:", dishError, { dishId, body });
@@ -87,7 +71,6 @@ export async function PUT(
       );
     }
 
-    // Update translations (use admin client for write)
     for (const [lang, text] of Object.entries(name)) {
       const { error: translationError } = await supabaseAdmin
         .from("dish_translations")
@@ -124,7 +107,6 @@ export async function PUT(
   }
 }
 
-// DELETE dish
 export async function DELETE(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -133,14 +115,10 @@ export async function DELETE(
     const { id } = await params;
     const dishId = id;
 
-    console.log("DELETE /api/admin/dishes/[id] called with dishId:", dishId);
-
     const { error } = await supabaseAdmin
       .from("dishes")
       .delete()
       .eq("id", dishId);
-
-    console.log("Supabase delete response:", { error });
 
     if (error) {
       console.error("Failed to delete dish:", error, { dishId });
