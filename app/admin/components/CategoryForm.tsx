@@ -70,7 +70,7 @@ export function CategoryForm({
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-4 p-4 rounded-2xl w-[50dvh]"
+      className="space-y-4 p-4 rounded-2xl max-w-[50dvh]"
     >
       <h3 className="font-karantina font-semibold text-yame text-4xl text-right tracking-wider">
         {initialData ? "עריכת קטגוריה" : "יצירת קטגוריה"}
