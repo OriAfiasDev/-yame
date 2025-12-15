@@ -13,7 +13,7 @@ export const Dish = ({ onClick, ...dish }: Props) => {
     dish;
 
   const image =
-    thumbnail ??
+    thumbnail ||
     "https://vpjgxnutcrreojzqewaw.supabase.co/storage/v1/object/public/images/nodish.jpg";
 
   return (

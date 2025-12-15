@@ -1,6 +1,18 @@
 import { createClient } from "@supabase/supabase-js";
-const supabaseUrl = "https://vpjgxnutcrreojzqewaw.supabase.co";
-const supabaseKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZwamd4bnV0Y3JyZW9qenFld2F3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU2OTEwOTUsImV4cCI6MjA3MTI2NzA5NX0.Vki-yyUDkz9k3UuFllxgJetHt6no0M1AxyYqkFh23Ls";
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+if (!supabaseUrl || !supabaseKey) {
+  throw new Error(
+    "Missing Supabase environment variables: NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY are required"
+  );
+}
 
 export const supabase = createClient(supabaseUrl, supabaseKey);
+
+export const supabaseAdmin = createClient(
+  supabaseUrl,
+  serviceRoleKey || supabaseKey
+);

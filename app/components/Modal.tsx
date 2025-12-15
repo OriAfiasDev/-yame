@@ -5,24 +5,32 @@ import { PropsWithChildren } from "react";
 export interface ModalProps extends PropsWithChildren {
   isOpen: boolean;
   onClose: () => void;
+  closeOnBackdropClick?: boolean;
 }
 
-const Modal = ({ isOpen, onClose, children }: ModalProps) => {
+const Modal = ({
+  isOpen,
+  onClose,
+  children,
+  closeOnBackdropClick,
+}: ModalProps) => {
   if (!isOpen) return null;
 
   return (
     <div
-      className="z-[999] fixed inset-0 flex justify-center items-center bg-opacity-50 backdrop-blur-lg backdrop-brightness-75"
-      onClick={onClose}
+      className="z-[999] fixed inset-0 flex justify-center items-center bg-black/40 backdrop-blur-lg backdrop-brightness-75"
+      onClick={() => closeOnBackdropClick && onClose()}
     >
-      <div className="relative bg-white shadow-lg p-6 rounded-4xl max-w-[90%] max-h-[90%]">
+      <div className="relative bg-white shadow-2xl backdrop-blur-md p-6 border border-white/10 rounded-3xl w-[min(90%,900px)] max-w-[90%] max-h-[90%]">
         <button
-          className="top-7 right-7 absolute text-black hover:text-yame text-xl cursor-pointer"
+          className="top-4 right-4 absolute text-black text-xl cursor-pointer"
           onClick={onClose}
         >
           &#x2715;
         </button>
-        {children}
+        <div className="pr-2 w-full max-h-[70vh] sm:max-h-[80vh] overflow-y-auto">
+          {children}
+        </div>
       </div>
     </div>
   );

@@ -19,14 +19,14 @@ export function DishModal({ dish, isOpen, onClose }: Props) {
     "https://vpjgxnutcrreojzqewaw.supabase.co/storage/v1/object/public/images/nodish.jpg";
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={onClose} closeOnBackdropClick>
       <div className="flex flex-col items-center text-center">
         <div className="w-full overflow-hidden text-yame text-right whitespace-nowrap">
           <h2 className="mb-2 font-karantina font-semibold text-3xl text-center align-top tracking-wider">
             {name[language]}
           </h2>
           <img
-            className="my-auto mb-2 rounded-2xl w-full h-full max-h-[240px] object-cover"
+            className="my-auto mb-2 rounded-2xl w-full h-full max-h-[480px] object-cover"
             src={image}
             alt={name[language]}
           />
